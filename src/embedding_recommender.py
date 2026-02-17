@@ -18,8 +18,14 @@ class EmbeddingRecommender:
         self.device = "cuda" if torch.cuda.is_available() else "cpu"
         print(f"Loading model {model_name} on {self.device}...")
         
-        # Load model with token from env if needed for gated models
+        # Load model with token from env (Mandatory for gated google/embeddinggemma-300m)
         token = os.getenv("HF_TOKEN")
+        if not token:
+            raise ValueError(
+                "HF_TOKEN environment variable is missing. This is REQUIRED for the gated model 'google/embeddinggemma-300m'. "
+                "Please accept the license at https://huggingface.co/google/embeddinggemma-300m and add your token to the .env file."
+            )
+            
         self.model = SentenceTransformer(model_name, token=token, device=self.device)
         self.embeddings = {}
 
