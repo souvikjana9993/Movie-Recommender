@@ -45,11 +45,14 @@ docs/*.md
 # Tests
 test_script.py
 
-# Service files
+# Service files (not needed in Docker deployment)
 *.service
 *.socket
 setup_service.sh
 run_viz.sh
+recommender-sync.sh
 
 # Status files
 update_log.txt
+
+# Note: Sync logic is now integrated into Dockerfile ENTRYPOINT
