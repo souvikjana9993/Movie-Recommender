@@ -36,6 +36,8 @@ from fastapi.responses import FileResponse
 import sys
 import subprocess
 from datetime import datetime, timedelta
+from apscheduler.schedulers.background import BackgroundScheduler
+from apscheduler.triggers.cron import CronTrigger
 
 # Paths
 PROJECT_ROOT = Path(__file__).parent.parent
@@ -355,9 +357,121 @@ class PersistentArrCache:
 
 _arr_cache = PersistentArrCache()
 
+# =============================================================================
+# SCHEDULER (Background Tasks)
+# =============================================================================
+scheduler = None
+
+def run_script(script_name):
+    """Run a python script from the src directory."""
+    try:
+        print(f"⏰ Scheduler: Starting {script_name}...")
+        script_path = PROJECT_ROOT / "src" / script_name
+        # Use simple subprocess to avoid blocking the scheduler too much, 
+        # though it runs in a thread pool by default.
+        # We use sys.executable to ensure we use the same python environment
+        subprocess.Popen(
+            [sys.executable, str(script_path)],
+            cwd=str(PROJECT_ROOT / "src"),
+            stdout=subprocess.DEVNULL, # Don't clutter logs too much
+            stderr=subprocess.DEVNULL
+        )
+        print(f"✅ Scheduler: Triggered {script_name}")
+    except Exception as e:
+        print(f"❌ Scheduler Error running {script_name}: {e}")
+
+def start_scheduler():
+    global scheduler
+    if scheduler:
+        return
+        
+    scheduler = BackgroundScheduler()
+    
+    # 1. Daily Watch History Sync (Light) - Runs at 3:00 AM
+    # Fetches new watch history from Jellyfin so recommendations stay fresh
+    scheduler.add_job(
+        run_script,
+        CronTrigger(hour=3, minute=0),
+        args=["jellyfin_fetcher.py"],
+        id="daily_sync",
+        name="Daily Jellyfin Sync",
+        replace_existing=True
+    )
+    
+    # 2. Weekly Full System Update - Runs on Mondays at 4:00 AM
+    # Fetches TMDB, Regenerates Embeddings/Scores, Refreshes API
+    scheduler.add_job(
+        run_script,
+        CronTrigger(day_of_week="mon", hour=4, minute=0),
+        args=["update_system.py"],
+        id="weekly_sync",
+        name="Weekly Full System Update",
+        replace_existing=True
+    )
+    
+    scheduler.start()
+    print("🕒 Background Scheduler Started")
+    print("   • Daily Sync: 03:00 AM")
+    print("   • Weekly Full Sync: Mon 04:00 AM")
+
+def check_startup_sync():
+    """
+    Check if we need to run a sync on startup.
+    - If last full sync was > 7 days ago: Run Full Sync
+    - Otherwise: Run Light Sync (Jellyfin only)
+    """
+    print("🚀 Startup: Checking sync status...")
+    
+    # Check update_status.json for last full sync time
+    status_file = PROJECT_ROOT / "data" / "update_status.json"
+    last_full_sync = datetime.min
+    
+    if status_file.exists():
+        try:
+            with open(status_file, "r") as f:
+                data = json.load(f)
+                # Check if it was a success and get time
+                if data.get("status") == "success" and data.get("last_update"):
+                    last_full_sync = datetime.fromisoformat(data["last_update"])
+        except Exception as e:
+            print(f"⚠️ Error reading status file: {e}")
+            
+    # Calculate days since last sync
+    days_since = (datetime.now() - last_full_sync).days
+    
+    if days_since >= 7:
+        print(f"📉 Last full sync was {days_since} days ago. Triggering FULL SYNC...")
+        run_script("update_system.py")
+    else:
+        print(f"✅ Last full sync was {days_since} days ago. Triggering LIGHT SYNC (Jellyfin)...")
+        run_script("jellyfin_fetcher.py")
+
+@app.get("/scheduler/jobs", tags=["Admin"])
+async def get_scheduled_jobs():
+    """List all active background scheduled jobs."""
+    if not scheduler:
+        return {"status": "error", "message": "Scheduler not running"}
+    
+    jobs = []
+    for job in scheduler.get_jobs():
+        jobs.append({
+            "id": job.id,
+            "name": job.name,
+            "next_run": job.next_run_time.isoformat() if job.next_run_time else None,
+            "trigger": str(job.trigger)
+        })
+        
+    return {
+        "status": "active",
+        "running": scheduler.running,
+        "jobs": jobs
+    }
+
 @app.on_event("startup")
 async def startup_event():
     _lib_cache.refresh_if_needed()
+    start_scheduler()
+    check_startup_sync()
 
 # Enable CORS for browser access
 app.add_middleware(
@@ -1262,10 +1376,9 @@ async def regenerate_system():
             json.dump(library_cache, f, indent=2)
         print(f"💾 Cached {len(library_tmdb_ids)} library items")
         
-        # Run update_system.py in background using venv python
-        venv_python = PROJECT_ROOT / "venv" / "bin" / "python"
+        # Run update_system.py in background using same python executable
         subprocess.Popen(
-            [str(venv_python), "update_system.py"],
+            [sys.executable, "update_system.py"],
             cwd=str(PROJECT_ROOT / "src"),
             stdout=subprocess.DEVNULL,
             stderr=subprocess.DEVNULL
@@ -1359,10 +1472,25 @@ async def refresh_cache():
     recs = load_recommendations()
     candidates = load_candidates()
     
+    # Rebuild BM25 index with new candidates
+    bm25_count = 0
+    try:
+        if candidates.get("candidates"):
+            print("🔄 Rebuilding BM25 index...")
+            # We use force_refresh=True to ensure we don't just load the old cache
+            bm25_count = build_bm25_index(force_refresh=True)
+            # Reload the singleton
+            global bm25_search
+            bm25_search = get_bm25_search()
+            print(f"✅ BM25 index rebuilt with {bm25_count} items")
+    except Exception as e:
+        print(f"⚠️ Error rebuilding BM25 index: {e}")
+    
     return {
         "status": "refreshed",
         "recommendations_loaded": len(recs.get("recommendations", [])),
-        "candidates_loaded": len(candidates.get("candidates", []))
+        "candidates_loaded": len(candidates.get("candidates", [])),
+        "bm25_items_indexed": bm25_count
     }
 
 
