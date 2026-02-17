@@ -3,6 +3,8 @@
 
 # Data directory (large files, user-specific)
 data/
+src/data/
+update_log.txt
 
 # Python
 __pycache__/

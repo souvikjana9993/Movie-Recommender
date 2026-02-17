@@ -16,7 +16,7 @@ from dotenv import load_dotenv
 # Load environment variables
 load_dotenv()
 
-JELLYFIN_URL = os.getenv("JELLYFIN_URL", "http://192.168.29.152:8096")
+JELLYFIN_URL = os.getenv("JELLYFIN_URL")
 JELLYFIN_API_KEY = os.getenv("JELLYFIN_API_KEY")
 
 # Output directory for fetched data
@@ -430,6 +430,12 @@ def main():
     print("=" * 60)
     
     # Validate configuration
+    if not JELLYFIN_URL:
+        print("❌ Error: JELLYFIN_URL not set in environment")
+        print("   Create a .env file with your Jellyfin server URL:")
+        print("   JELLYFIN_URL=http://your-jellyfin-server:8096")
+        return
+
     if not JELLYFIN_API_KEY:
         print("❌ Error: JELLYFIN_API_KEY not set in environment")
         print("   Create a .env file with your API key:")
