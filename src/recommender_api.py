@@ -373,7 +373,7 @@ from fastapi.responses import RedirectResponse
 
 @app.get("/")
 async def root():
-    return RedirectResponse(url="/ui_v2/index.html")
+    return RedirectResponse(url="/ui/index.html")
 
 app.mount("/ui", StaticFiles(directory=str(PROJECT_ROOT / "ui"), html=True), name="ui")
 
@@ -1683,28 +1683,11 @@ async def get_top_rated(
 # STATIC FILE SERVING (UI)
 # =============================================================================
 
-from fastapi.staticfiles import StaticFiles
-from fastapi.responses import FileResponse
-
-# UI directory
-UI_DIR = PROJECT_ROOT / "ui"
-
-# Mount static files if UI directory exists
-if UI_DIR.exists():
-    app.mount("/ui", StaticFiles(directory=str(UI_DIR), html=True), name="ui")
-
-UI_V2_DIR = PROJECT_ROOT / "ui_v2"
-if UI_V2_DIR.exists():
-    app.mount("/ui_v2", StaticFiles(directory=str(UI_V2_DIR), html=True), name="ui_v2")
-
 
 @app.get("/app", tags=["UI"], include_in_schema=False)
 async def serve_ui():
     """Redirect to the UI."""
-    ui_index = UI_DIR / "index.html"
-    if ui_index.exists():
-        return FileResponse(ui_index)
-    return {"error": "UI not found. Create ui/index.html"}
+    return RedirectResponse(url="/ui/index.html")
 
 
 # =============================================================================
