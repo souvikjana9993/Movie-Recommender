@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Movie Recommender v2</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="v2-theme">
+
+    <!-- Top Navigation Bar -->
+    <header class="top-bar">
+        <div class="brand">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+            <span>MovieAI <span>v2.0</span></span>
+        </div>
+
+        <div class="center-actions">
+            <!-- Quick Filters - Always Visible -->
+            <select id="quick-genre-filter" class="quick-filter" onchange="applyQuickFilter()">
+                <option value="">All Genres</option>
+            </select>
+            <select id="quick-type-filter" class="quick-filter" onchange="applyQuickFilter()">
+                <option value="">All Types</option>
+                <option value="movie">Movies</option>
+                <option value="tv">TV Shows</option>
+            </select>
+
+            <div class="search-v2">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="global-search" placeholder="Search titles, actors, or genres...">
+            </div>
+
+            <!-- Search Mode Toggle -->
+            <div class="search-mode-toggle" title="Simple: Name only | Advanced: Name + Actor + Director">
+                <span class="mode-label">Simple</span>
+                <label class="switch">
+                    <input type="checkbox" id="search-mode-toggle">
+                    <span class="slider-toggle round"></span>
+                </label>
+                <span class="mode-label">Advanced</span>
+            </div>
+
+            <button id="toggle-tuner" class="btn btn-glass" title="Fine-tune recommendations">
+                <i class="fa-solid fa-sliders"></i>
+                <span>Tuner</span>
+            </button>
+
+            <button onclick="triggerRegeneration()" class="btn btn-glass" title="Refresh all data">
+                <i class="fa-solid fa-sync" id="sync-icon"></i>
+                <span>Sync</span>
+            </button>
+            <div id="sync-status" class="sync-status-indicator hidden">
+                <div class="sync-progress-bar">
+                    <div id="sync-progress-fill"></div>
+                </div>
+                <span id="sync-status-msg">Syncing...</span>
+            </div>
+        </div>
+
+        <div class="user-actions">
+            <span id="recs-count" class="badge">60 results</span>
+            <div class="avatar">SJ</div>
+        </div>
+    </header>
+
+    <!-- Collapsible Tuner Drawer -->
+    <div id="tuner-drawer" class="tuner-drawer closed">
+        <div class="tuner-content">
+            <div class="section-header">
+                <h3>Recommendation Tuner</h3>
+                <div class="header-actions">
+                    <span id="tuner-status" style="font-size: 0.75rem; color: var(--text-dim); margin-right: 1rem;">Adjust sliders and click Confirm</span>
+                    <button id="reset-tuner" class="btn btn-glass btn-sm" title="Reset to original weights">
+                        <i class="fa-solid fa-rotate-left"></i>
+                        <span>Reset</span>
+                    </button>
+                </div>
+            </div>
+            <div class="tuner-grid">
+                <div class="tuner-card">
+                    <label><i class="fa-solid fa-dna"></i> Content Weight</label>
+                    <input type="range" id="weight-content" class="slider" min="0" max="1" step="0.05" value="0.4">
+                    <span id="val-content">0.40</span>
+                </div>
+                <div class="tuner-card">
+                    <label><i class="fa-solid fa-users"></i> Collaborative</label>
+                    <input type="range" id="weight-collab" class="slider" min="0" max="1" step="0.05" value="0.3">
+                    <span id="val-collab">0.30</span>
+                </div>
+                <div class="tuner-card">
+                    <label><i class="fa-solid fa-medal"></i> Quality</label>
+                    <input type="range" id="weight-quality" class="slider" min="0" max="1" step="0.05" value="0.2">
+                    <span id="val-quality">0.20</span>
+                </div>
+                <div class="tuner-card">
+                    <label><i class="fa-solid fa-bullseye"></i> Confidence</label>
+                    <input type="range" id="weight-confidence" class="slider" min="0" max="1" step="0.05" value="0.1">
+                    <span id="val-confidence">0.10</span>
+                </div>
+                <div class="tuner-card">
+                    <label><i class="fa-solid fa-list-ol"></i> Recommendations</label>
+                    <div style="display: flex; gap: 10px; align-items: center; margin-top: 8px;">
+                        <input type="number" id="filter-limit" class="input-glass" min="10" max="100" step="10" value="60" style="width: 120px; margin-top: 0;">
+                        <button id="confirm-tuner" class="btn btn-primary btn-sm" title="Apply weight changes" disabled>
+                            <i class="fa-solid fa-check"></i>
+                            <span>Confirm</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <main class="content-v2">
+        <section class="section-header">
+            <h2>Recommended for You</h2>
+            <div class="filters">
+                <!-- Potential future filters here -->
+            </div>
+        </section>
+
+        <div id="main-grid" class="movie-grid-v2">
+            <!-- Cards injected by app.js -->
+            <div class="loading-full">
+                <i class="fa-solid fa-circle-notch fa-spin"></i>
+                <p>Curating your personal cinema...</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Detail Modal -->
+    <div id="movie-modal" class="modal-v2">
+        <div class="modal-overlay" onclick="closeModal()"></div>
+        <div class="modal-container">
+            <button class="modal-close" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+            <div id="modal-content">
+                <!-- Content injected by app.js -->
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html><!-- Cache bust: 1771181884 -->
+<!-- Cache bust v3: 1771182025 -->
+<!-- Cache bust v4: 1771182247 -->
+<!-- Cache bust v5: 1771269517 -->
+<!-- Hide 4mo: 1771305181 -->

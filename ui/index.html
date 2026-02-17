@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jellyfin Recommender</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="logo">
+                <i class="fa-solid fa-infinity"></i>
+            </div>
+
+            <ul class="nav-links">
+                <li class="active" data-view="home">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Home</span>
+                </li>
+                <li data-view="discover">
+                    <i class="fa-solid fa-compass"></i>
+                    <span>Discover</span>
+                </li>
+                <li data-view="history">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    <span>History</span>
+                </li>
+                <li class="spacer"></li>
+                <li data-view="settings">
+                    <i class="fa-solid fa-sliders"></i>
+                    <span>Tune</span>
+                </li>
+            </ul>
+
+
+
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="content-area">
+
+            <!-- Global Header -->
+            <header class="main-header">
+                <div class="search-wrapper">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="global-search" placeholder="Search movies or TV shows...">
+                </div>
+                <div class="header-actions">
+                    <button class="icon-btn" onclick="showSettings()"><i class="fa-solid fa-gear"></i></button>
+                    <div class="user-avatar">S</div>
+                </div>
+            </header>
+
+            <!-- Hero Section (Featured Recommendation) -->
+            <section id="hero-section" class="hero hidden">
+                <div class="hero-backdrop" id="hero-backdrop"></div>
+                <div class="hero-overlay"></div>
+
+                <div class="hero-content">
+                    <div class="hero-meta">
+                        <span class="hero-type" id="hero-type">MOVIE</span>
+                        <span class="hero-rating"><i class="fa-solid fa-star"></i> <span
+                                id="hero-score">0.0</span></span>
+                    </div>
+                    <h1 id="hero-title">Loading...</h1>
+                    <div class="hero-info">
+                        <span id="hero-year">2024</span>
+                        <span class="dot">•</span>
+                        <span id="hero-genres">Action, Sci-Fi</span>
+                    </div>
+                    <p id="hero-overview">Fetching your latest recommendations...</p>
+
+                    <div class="hero-actions">
+                        <button class="btn btn-primary" onclick="playHero()">
+                            <i class="fa-solid fa-play"></i> Watch Now
+                        </button>
+                        <button class="btn btn-glass" onclick="openHeroDetails()">
+                            <i class="fa-solid fa-circle-info"></i> More Info
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Scrollable Rows Container -->
+            <div id="home-view" class="view-section">
+                <!-- Row: Top Picks -->
+                <section class="media-row">
+                    <div class="row-header">
+                        <h2>Top Picks for You</h2>
+                        <div class="row-controls">
+                            <button class="row-nav prev"><i class="fa-solid fa-chevron-left"></i></button>
+                            <button class="row-nav next"><i class="fa-solid fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                    <div class="row-scroller" id="row-top-picks">
+                        <!-- Items injected here -->
+                        <div class="loading-spinner"></div>
+                    </div>
+                </section>
+
+                <!-- Row: Discovery -->
+                <section class="media-row">
+                    <div class="row-header">
+                        <h2>Because you watched <span class="highlight-text" id="because-source">...</span></h2>
+                    </div>
+                    <div class="row-scroller" id="row-discovery">
+                        <div class="loading-spinner"></div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Grid View (Discover/Browse) -->
+            <div id="discover-view" class="view-section hidden">
+                <div class="section-header">
+                    <h2>Discover</h2>
+                    <div class="filters">
+                        <select id="genre-filter" class="filter-select">
+                            <option value="all">All Genres</option>
+                        </select>
+                        <select id="type-filter" class="filter-select">
+                            <option value="all">All Types</option>
+                            <option value="movie">Movies</option>
+                            <option value="tv">TV Shows</option>
+                        </select>
+                        <select id="sort-filter" class="filter-select">
+                            <option value="score">Sort by Score</option>
+                            <option value="date">Sort by Year</option>
+                            <option value="rating">Sort by Rating</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="poster-grid" id="recommendations-grid"></div>
+                <div id="loading" class="loading-state hidden">
+                    <div class="loading-spinner"></div>
+                    <p>Finding gems...</p>
+                </div>
+            </div>
+
+            <!-- Settings View -->
+            <div id="settings-view" class="view-section hidden">
+                <div class="settings-container">
+                    <h2>Recommendation Tuner</h2>
+                    <p class="settings-desc">Adjust how your recommendations are calculated.</p>
+
+                    <div class="sliders-container">
+                        <div class="slider-group">
+                            <div class="slider-info">
+                                <label>Content Similarity</label>
+                                <span id="val-content" class="slider-value">1.0</span>
+                            </div>
+                            <input type="range" id="weight-content" class="slider" min="0" max="5" step="0.1"
+                                value="1.0">
+                            <p class="slider-desc">Matches plot, genres, and themes.</p>
+                        </div>
+
+                        <div class="slider-group">
+                            <div class="slider-info">
+                                <label>Collaborative Filtering</label>
+                                <span id="val-collab" class="slider-value">1.0</span>
+                            </div>
+                            <input type="range" id="weight-collab" class="slider" min="0" max="5" step="0.1"
+                                value="1.0">
+                            <p class="slider-desc">What similar users watched.</p>
+                        </div>
+
+                        <div class="slider-group">
+                            <div class="slider-info">
+                                <label>Confidence Boost</label>
+                                <span id="val-confidence" class="slider-value">0.0</span>
+                            </div>
+                            <input type="range" id="weight-confidence" class="slider" min="0" max="5" step="0.1"
+                                value="0.0">
+                            <p class="slider-desc">Boost items with high data confidence.</p>
+                        </div>
+
+                        <div class="slider-group">
+                            <div class="slider-info">
+                                <label>Quality Rating</label>
+                                <span id="val-quality" class="slider-value">0.0</span>
+                            </div>
+                            <input type="range" id="weight-quality" class="slider" min="0" max="5" step="0.1"
+                                value="0.0">
+                            <p class="slider-desc">Boost highly rated items.</p>
+                        </div>
+                    </div>
+
+                    <div
+                        style="margin-top: 3rem; background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 12px;">
+                        <h3>Admin Actions</h3>
+                        <p class="settings-desc">Manage system updates and data.</p>
+
+                        <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                            <button class="btn btn-primary" onclick="triggerRegeneration()">
+                                <i class="fa-solid fa-arrows-rotate"></i> Regenerate Recommendations
+                            </button>
+                        </div>
+                        <p style="margin-top: 0.5rem; font-size: 12px; color: var(--text-gray);">
+                            Triggers a full update: Fetches new watch history, generating new candidates, and
+                            recalculating scores.
+                            Runs in the background (takes ~5-10 mins).
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Movie Detail Modal -->
+    <div id="detail-modal" class="modal-overlay">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal-content" id="modal-content">
+                <!-- Content injected by JS -->
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js?v=2"></script>
+</body>
+
+</html>

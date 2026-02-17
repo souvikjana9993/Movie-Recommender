@@ -1,0 +1,23 @@
+# AI Movie Recommender - Docker Compose Override (Development)
+#
+# This file extends docker-compose.yml for development use.
+# It mounts UI files for live editing without rebuilding the container.
+#
+# Usage:
+#   docker-compose -f docker-compose.yml -f docker-compose.override.yml up -d
+#
+# For production, use only docker-compose.yml
+
+version: '3.8'
+
+services:
+  movie-recommender:
+    volumes:
+      # Mount UI files for development (allows live editing)
+      - ./ui_v2:/app/ui:ro
+    # Disable health check in development to prevent restarts during debugging
+    # healthcheck:
+    #   disable: true
+    # Show logs in foreground for development
+    # stdin_open: true
+    # tty: true

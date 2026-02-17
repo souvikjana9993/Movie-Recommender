@@ -1,0 +1,62 @@
+version: '3.8'
+
+# AI Movie Recommender - Docker Compose Configuration
+# 
+# This file sets up the movie recommender service with:
+# - Automatic restart on failure
+# - Data persistence across container restarts
+# - Health checks
+# - Environment configuration via .env file
+#
+# Setup Instructions:
+#   1. Copy .env.example to .env and add your API keys
+#   2. Run: docker-compose up -d
+#   3. Wait 60-90 seconds for first boot (generates embeddings)
+#   4. Access at http://localhost:8097
+#
+# Your data is stored in ./data/ and persists across restarts:
+#   - watch_history.json: Your Jellyfin watch history
+#   - embeddings.pkl: Neural embeddings (expensive to regenerate!)
+#   - recommendations.json: Calculated recommendations
+#   - all_scores.json: Pre-calculated scores
+#   - disliked_items.json: Hidden movies (4-month expiration)
+
+services:
+  movie-recommender:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: movie-recommender:latest
+    container_name: movie-recommender
+    restart: unless-stopped
+    ports:
+      - "8097:8097"
+    environment:
+      - PYTHONUNBUFFERED=1
+    env_file:
+      - .env
+    volumes:
+      # Persist all data including embeddings, recommendations, and watch history
+      # This ensures your data survives container restarts and updates
+      - ./data:/app/data
+    networks:
+      - recommender-network
+    healthcheck:
+      test: ["CMD", "python3", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8097/api/health')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    # Resource limits (optional - uncomment if needed)
+    # deploy:
+    #   resources:
+    #     limits:
+    #       cpus: '2.0'
+    #       memory: 4G
+    #     reservations:
+    #       cpus: '1.0'
+    #       memory: 2G
+
+networks:
+  recommender-network:
+    driver: bridge

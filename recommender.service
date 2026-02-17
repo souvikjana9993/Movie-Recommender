@@ -1,0 +1,38 @@
+[Unit]
+Description=AI Movie Recommender API
+Documentation=https://github.com/yourusername/movierecommender
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=sjscarface
+WorkingDirectory=/home/sjscarface/aiprojects/movierecommender
+Environment="PATH=/home/sjscarface/aiprojects/movierecommender/venv/bin:/usr/local/bin:/usr/bin:/bin"
+Environment="PYTHONUNBUFFERED=1"
+
+# Pre-start: Run sync script (library fetch + conditional full sync)
+# Allow up to 10 minutes for first-time full sync with embeddings
+TimeoutStartSec=600
+ExecStartPre=/bin/bash /home/sjscarface/aiprojects/movierecommender/recommender-sync.sh
+
+# Main service: Start API server
+ExecStart=/home/sjscarface/aiprojects/movierecommender/venv/bin/uvicorn recommender_api:app --host 0.0.0.0 --port 8097 --app-dir src
+
+# Restart policy
+Restart=always
+RestartSec=10
+StartLimitInterval=60s
+StartLimitBurst=3
+
+# Graceful shutdown
+TimeoutStopSec=30
+KillSignal=SIGTERM
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=movie-recommender
+
+[Install]
+WantedBy=default.target

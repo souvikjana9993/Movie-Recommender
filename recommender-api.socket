@@ -1,0 +1,9 @@
+[Unit]
+Description=Socket for Jellyfin Recommender API
+
+[Socket]
+ListenStream=8097
+Accept=no
+
+[Install]
+WantedBy=sockets.target

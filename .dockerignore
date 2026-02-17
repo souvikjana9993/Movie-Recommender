@@ -1,0 +1,55 @@
+# Git
+.git
+.gitignore
+
+# Python
+__pycache__
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# Jupyter
+.ipynb_checkpoints
+*.ipynb
+
+# Logs
+*.log
+api_*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Documentation (keep minimal docs in image)
+docs/*.md
+
+# Large model files (will be downloaded on first run if needed)
+# Note: embeddings.pkl should be kept in data/ volume
+
+# Tests
+test_script.py
+
+# Service files
+*.service
+*.socket
+setup_service.sh
+run_viz.sh
+
+# Status files
+update_log.txt

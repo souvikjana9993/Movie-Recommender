@@ -1,0 +1,560 @@
+[2026-02-14 18:30:33] ============================================================
+[2026-02-14 18:30:33] 📅 STATISTICS UPDATE STARTED
+[2026-02-14 18:30:33] ============================================================
+[2026-02-14 18:30:33] 🚀 Starting jellyfin_fetcher.py...
+[2026-02-14 18:30:44] ✅ jellyfin_fetcher.py completed successfully.
+[2026-02-14 18:30:44] 🚀 Starting tmdb_fetcher.py...
+[2026-02-14 18:30:53] ✅ tmdb_fetcher.py completed successfully.
+[2026-02-14 18:30:53] 🚀 Starting generate_all_scores.py...
+[2026-02-14 18:32:37] ✅ generate_all_scores.py completed successfully.
+[2026-02-14 18:32:37] 🔄 Triggering API refresh...
+[2026-02-14 18:32:37] ✅ API refreshed successfully.
+[2026-02-14 18:32:37] ============================================================
+[2026-02-14 18:32:37] ✅ UPDATE PIPELINE COMPLETED
+[2026-02-14 18:32:37] ============================================================
+[2026-02-14 23:41:46] ============================================================
+[2026-02-14 23:41:46] 📅 STATISTICS UPDATE STARTED
+[2026-02-14 23:41:46] ============================================================
+[2026-02-14 23:41:46] 🚀 Starting jellyfin_fetcher.py...
+[2026-02-14 23:42:53] ✅ jellyfin_fetcher.py completed successfully.
+[2026-02-14 23:42:53] 🚀 Starting tmdb_fetcher.py...
+[2026-02-14 23:43:00] ✅ tmdb_fetcher.py completed successfully.
+[2026-02-14 23:43:00] 🚀 Starting generate_all_scores.py...
+[2026-02-14 23:44:18] ✅ generate_all_scores.py completed successfully.
+[2026-02-14 23:44:18] 🔄 Triggering API refresh...
+[2026-02-14 23:44:28] ⚠️ API refresh failed (API might be down): HTTPConnectionPool(host='localhost', port=8097): Read timed out. (read timeout=10)
+[2026-02-14 23:44:28] ============================================================
+[2026-02-14 23:44:28] ✅ UPDATE PIPELINE COMPLETED
+[2026-02-14 23:44:28] ============================================================
+[2026-02-15 13:30:29] ============================================================
+[2026-02-15 13:30:29] 📅 STATISTICS UPDATE STARTED
+[2026-02-15 13:30:29] ============================================================
+[2026-02-15 13:30:29] 🚀 Starting jellyfin_fetcher.py...
+[2026-02-15 13:30:57] ✅ jellyfin_fetcher.py completed successfully.
+[2026-02-15 13:30:57] 🚀 Starting tmdb_fetcher.py...
+[2026-02-15 13:31:00] ✅ tmdb_fetcher.py completed successfully.
+[2026-02-15 13:31:00] 🚀 Starting generate_all_scores.py...
+[2026-02-15 13:31:21] ✅ generate_all_scores.py completed successfully.
+[2026-02-15 13:31:21] 🔄 Triggering API refresh...
+[2026-02-15 13:31:25] ⚠️ API refresh failed (API might be down): ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+[2026-02-15 13:31:25] ============================================================
+[2026-02-15 13:31:25] ✅ UPDATE PIPELINE COMPLETED
+[2026-02-15 13:31:25] ============================================================
+[2026-02-15 14:24:06] ============================================================
+[2026-02-15 14:24:06] 📅 STATISTICS UPDATE STARTED
+[2026-02-15 14:24:06] ============================================================
+[2026-02-15 14:24:06] 🚀 Starting jellyfin_fetcher.py...
+[2026-02-15 14:24:27] ✅ jellyfin_fetcher.py completed successfully.
+[2026-02-15 14:24:27] 🚀 Starting tmdb_fetcher.py...
+[2026-02-15 14:24:29] ✅ tmdb_fetcher.py completed successfully.
+[2026-02-15 14:24:29] 🚀 Starting generate_all_scores.py...
+[2026-02-15 14:24:31] ❌ generate_all_scores.py failed with exit code 1
+[2026-02-15 14:24:31] Error output:
+Traceback (most recent call last):
+  File "/home/sjscarface/aiprojects/movierecommender/src/generate_all_scores.py", line 16, in <module>
+    from embedding_recommender import EmbeddingRecommender
+  File "/home/sjscarface/aiprojects/movierecommender/src/embedding_recommender.py", line 6, in <module>
+    from sentence_transformers import SentenceTransformer
+ModuleNotFoundError: No module named 'sentence_transformers'
+
+[2026-02-15 14:24:31] ❌ Aborting pipeline due to Score generation failure.
+[2026-02-15 14:25:39] ============================================================
+[2026-02-15 14:25:39] 📅 STATISTICS UPDATE STARTED
+[2026-02-15 14:25:39] ============================================================
+[2026-02-15 14:25:39] 🚀 Starting jellyfin_fetcher.py...
+[2026-02-15 14:26:00] ✅ jellyfin_fetcher.py completed successfully.
+[2026-02-15 14:26:00] 🚀 Starting tmdb_fetcher.py...
+[2026-02-15 14:26:02] ✅ tmdb_fetcher.py completed successfully.
+[2026-02-15 14:26:02] 🚀 Starting generate_all_scores.py...
+[2026-02-15 14:26:28] ✅ generate_all_scores.py completed successfully.
+[2026-02-15 14:26:28] 🔄 Triggering API refresh...
+[2026-02-15 14:26:28] ✅ API refreshed successfully.
+[2026-02-15 14:26:28] ============================================================
+[2026-02-15 14:26:28] ✅ UPDATE PIPELINE COMPLETED
+[2026-02-15 14:26:28] ============================================================
+[2026-02-15 14:27:51] ============================================================
+[2026-02-15 14:27:51] 📅 STATISTICS UPDATE STARTED
+[2026-02-15 14:27:51] ============================================================
+[2026-02-15 14:27:51] 🚀 Starting jellyfin_fetcher.py...
+[2026-02-15 14:28:08] ✅ jellyfin_fetcher.py completed successfully.
+[2026-02-15 14:28:08] 🚀 Starting tmdb_fetcher.py...
+[2026-02-15 14:28:10] ✅ tmdb_fetcher.py completed successfully.
+[2026-02-15 14:28:10] 🚀 Starting generate_all_scores.py...
+[2026-02-15 14:28:34] ✅ generate_all_scores.py completed successfully.
+[2026-02-15 14:28:34] 🔄 Triggering API refresh...
+[2026-02-15 14:28:34] ✅ API refreshed successfully.
+[2026-02-15 14:28:34] ============================================================
+[2026-02-15 14:28:34] ✅ UPDATE PIPELINE COMPLETED
+[2026-02-15 14:28:34] ============================================================
+[2026-02-15 14:40:09] ============================================================
+[2026-02-15 14:40:09] 📅 STATISTICS UPDATE STARTED
+[2026-02-15 14:40:09] ============================================================
+[2026-02-15 14:40:09] 🚀 Starting jellyfin_fetcher.py...
+[2026-02-15 14:40:21] ✅ jellyfin_fetcher.py completed successfully.
+[2026-02-15 14:40:21] 🚀 Starting tmdb_fetcher.py...
+[2026-02-15 14:40:23] ✅ tmdb_fetcher.py completed successfully.
+[2026-02-15 14:40:23] 🚀 Starting generate_all_scores.py...
+[2026-02-15 14:40:44] ✅ generate_all_scores.py completed successfully.
+[2026-02-15 14:40:44] 🔄 Triggering API refresh...
+[2026-02-15 14:40:44] ✅ API refreshed successfully.
+[2026-02-15 14:40:44] ============================================================
+[2026-02-15 14:40:44] ✅ UPDATE PIPELINE COMPLETED
+[2026-02-15 14:40:44] ============================================================
+[2026-02-15 14:48:54] ============================================================
+[2026-02-15 14:48:54] 📅 STATISTICS UPDATE STARTED
+[2026-02-15 14:48:54] ============================================================
+[2026-02-15 14:48:54] 🚀 Starting jellyfin_fetcher.py...
+[2026-02-15 14:49:09] ✅ jellyfin_fetcher.py completed successfully.
+[2026-02-15 14:49:09] 🚀 Starting tmdb_fetcher.py...
+[2026-02-15 14:49:11] ✅ tmdb_fetcher.py completed successfully.
+[2026-02-15 14:49:11] 🚀 Starting generate_all_scores.py...
+[2026-02-15 14:49:31] ✅ generate_all_scores.py completed successfully.
+[2026-02-15 14:49:31] 🔄 Triggering API refresh...
+[2026-02-15 14:49:31] ✅ API refreshed successfully.
+[2026-02-15 14:49:31] ============================================================
+[2026-02-15 14:49:31] ✅ UPDATE PIPELINE COMPLETED
+[2026-02-15 14:49:31] ============================================================
+[2026-02-15 14:52:28] ============================================================
+[2026-02-15 14:52:28] 📅 STATISTICS UPDATE STARTED
+[2026-02-15 14:52:28] ============================================================
+[2026-02-15 14:52:28] 🚀 Starting jellyfin_fetcher.py...
+[2026-02-15 14:52:42] ✅ jellyfin_fetcher.py completed successfully.
+[2026-02-15 14:52:42] 🚀 Starting tmdb_fetcher.py...
+[2026-02-15 14:52:44] ✅ tmdb_fetcher.py completed successfully.
+[2026-02-15 14:52:44] 🚀 Starting generate_all_scores.py...
+[2026-02-15 14:53:04] ✅ generate_all_scores.py completed successfully.
+[2026-02-15 14:53:04] 🔄 Triggering API refresh...
+[2026-02-15 14:53:04] ✅ API refreshed successfully.
+[2026-02-15 14:53:04] ============================================================
+[2026-02-15 14:53:04] ✅ UPDATE PIPELINE COMPLETED
+[2026-02-15 14:53:04] ============================================================
+[2026-02-15 14:53:47] ============================================================
+[2026-02-15 14:53:47] 📅 STATISTICS UPDATE STARTED
+[2026-02-15 14:53:47] ============================================================
+[2026-02-15 14:53:47] 🚀 Starting jellyfin_fetcher.py...
+[2026-02-15 14:54:01] ✅ jellyfin_fetcher.py completed successfully.
+[2026-02-15 14:54:01] 🚀 Starting tmdb_fetcher.py...
+[2026-02-15 14:54:02] ✅ tmdb_fetcher.py completed successfully.
+[2026-02-15 14:54:02] 🚀 Starting generate_all_scores.py...
+[2026-02-15 14:54:22] ✅ generate_all_scores.py completed successfully.
+[2026-02-15 14:54:22] 🔄 Triggering API refresh...
+[2026-02-15 14:54:22] ✅ API refreshed successfully.
+[2026-02-15 14:54:22] ============================================================
+[2026-02-15 14:54:22] ✅ UPDATE PIPELINE COMPLETED
+[2026-02-15 14:54:22] ============================================================
+[2026-02-15 14:54:41] ============================================================
+[2026-02-15 14:54:41] 📅 STATISTICS UPDATE STARTED
+[2026-02-15 14:54:41] ============================================================
+[2026-02-15 14:54:41] 🚀 Starting jellyfin_fetcher.py...
+[2026-02-15 14:54:54] ✅ jellyfin_fetcher.py completed successfully.
+[2026-02-15 14:54:54] 🚀 Starting tmdb_fetcher.py...
+[2026-02-15 14:54:55] ✅ tmdb_fetcher.py completed successfully.
+[2026-02-15 14:54:55] 🚀 Starting generate_all_scores.py...
+[2026-02-15 14:55:17] ✅ generate_all_scores.py completed successfully.
+[2026-02-15 14:55:17] 🔄 Triggering API refresh...
+[2026-02-15 14:55:17] ✅ API refreshed successfully.
+[2026-02-15 14:55:17] ============================================================
+[2026-02-15 14:55:17] ✅ UPDATE PIPELINE COMPLETED
+[2026-02-15 14:55:17] ============================================================
+[2026-02-15 14:56:07] ============================================================
+[2026-02-15 14:56:07] 📅 STATISTICS UPDATE STARTED
+[2026-02-15 14:56:07] ============================================================
+[2026-02-15 14:56:07] 🚀 Starting jellyfin_fetcher.py...
+[2026-02-15 14:56:20] ✅ jellyfin_fetcher.py completed successfully.
+[2026-02-15 14:56:20] 🚀 Starting tmdb_fetcher.py...
+[2026-02-15 14:56:22] ✅ tmdb_fetcher.py completed successfully.
+[2026-02-15 14:56:22] 🚀 Starting generate_all_scores.py...
+[2026-02-15 14:56:44] ✅ generate_all_scores.py completed successfully.
+[2026-02-15 14:56:44] 🔄 Triggering API refresh...
+[2026-02-15 14:56:44] ✅ API refreshed successfully.
+[2026-02-15 14:56:44] ============================================================
+[2026-02-15 14:56:44] ✅ UPDATE PIPELINE COMPLETED
+[2026-02-15 14:56:44] ============================================================
+[2026-02-15 14:59:37] ============================================================
+[2026-02-15 14:59:37] 📅 STATISTICS UPDATE STARTED
+[2026-02-15 14:59:37] ============================================================
+[2026-02-15 14:59:37] 🚀 Starting jellyfin_fetcher.py...
+[2026-02-15 14:59:53] ✅ jellyfin_fetcher.py completed successfully.
+[2026-02-15 14:59:53] 🚀 Starting tmdb_fetcher.py...
+[2026-02-15 14:59:54] ✅ tmdb_fetcher.py completed successfully.
+[2026-02-15 14:59:54] 🚀 Starting generate_all_scores.py...
+[2026-02-15 15:00:17] ✅ generate_all_scores.py completed successfully.
+[2026-02-15 15:00:17] 🔄 Triggering API refresh...
+[2026-02-15 15:00:17] ✅ API refreshed successfully.
+[2026-02-15 15:00:17] ============================================================
+[2026-02-15 15:00:17] ✅ UPDATE PIPELINE COMPLETED
+[2026-02-15 15:00:17] ============================================================
+[2026-02-15 15:07:05] ============================================================
+[2026-02-15 15:07:05] 📅 STATISTICS UPDATE STARTED
+[2026-02-15 15:07:05] ============================================================
+[2026-02-15 15:07:05] 🚀 Starting jellyfin_fetcher.py...
+[2026-02-15 15:07:22] ✅ jellyfin_fetcher.py completed successfully.
+[2026-02-15 15:07:22] 🚀 Starting tmdb_fetcher.py...
+[2026-02-15 15:07:24] ✅ tmdb_fetcher.py completed successfully.
+[2026-02-15 15:07:24] 🚀 Starting generate_all_scores.py...
+[2026-02-15 15:07:43] ✅ generate_all_scores.py completed successfully.
+[2026-02-15 15:07:43] 🔄 Triggering API refresh...
+[2026-02-15 15:07:43] ✅ API refreshed successfully.
+[2026-02-15 15:07:43] ============================================================
+[2026-02-15 15:07:43] ✅ UPDATE PIPELINE COMPLETED
+[2026-02-15 15:07:43] ============================================================
+[2026-02-15 15:10:46] ============================================================
+[2026-02-15 15:10:46] 📅 STATISTICS UPDATE STARTED
+[2026-02-15 15:10:46] ============================================================
+[2026-02-15 15:10:46] 🚀 Starting jellyfin_fetcher.py...
+[2026-02-15 15:11:01] ✅ jellyfin_fetcher.py completed successfully.
+[2026-02-15 15:11:01] 🚀 Starting tmdb_fetcher.py...
+[2026-02-15 15:11:04] ✅ tmdb_fetcher.py completed successfully.
+[2026-02-15 15:11:04] 🚀 Starting generate_all_scores.py...
+[2026-02-15 15:11:28] ✅ generate_all_scores.py completed successfully.
+[2026-02-15 15:11:28] 🔄 Triggering API refresh...
+[2026-02-15 15:11:28] ✅ API refreshed successfully.
+[2026-02-15 15:11:28] ============================================================
+[2026-02-15 15:11:28] ✅ UPDATE PIPELINE COMPLETED
+[2026-02-15 15:11:28] ============================================================
+[2026-02-15 15:20:02] ============================================================
+[2026-02-15 15:20:02] 📅 STATISTICS UPDATE STARTED
+[2026-02-15 15:20:02] ============================================================
+[2026-02-15 15:20:02] 🚀 Starting jellyfin_fetcher.py...
+[2026-02-15 15:20:37] ✅ jellyfin_fetcher.py completed successfully.
+[2026-02-15 15:20:37] 🚀 Starting tmdb_fetcher.py...
+[2026-02-15 15:20:50] ✅ tmdb_fetcher.py completed successfully.
+[2026-02-15 15:20:50] 🚀 Starting generate_all_scores.py...
+[2026-02-15 15:22:58] ✅ generate_all_scores.py completed successfully.
+[2026-02-15 15:22:58] 🔄 Triggering API refresh...
+[2026-02-15 15:22:58] ✅ API refreshed successfully.
+[2026-02-15 15:22:58] ============================================================
+[2026-02-15 15:22:58] ✅ UPDATE PIPELINE COMPLETED
+[2026-02-15 15:22:58] ============================================================
+[2026-02-15 15:30:31] ============================================================
+[2026-02-15 15:30:31] 📅 STATISTICS UPDATE STARTED
+[2026-02-15 15:30:31] ============================================================
+[2026-02-15 15:30:31] 🚀 Starting jellyfin_fetcher.py...
+[2026-02-15 15:30:49] ✅ jellyfin_fetcher.py completed successfully.
+[2026-02-15 15:30:49] 🚀 Starting tmdb_fetcher.py...
+[2026-02-15 15:31:12] ✅ tmdb_fetcher.py completed successfully.
+[2026-02-15 15:31:12] 🚀 Starting generate_all_scores.py...
+[2026-02-15 15:33:48] ✅ generate_all_scores.py completed successfully.
+[2026-02-15 15:33:48] 🔄 Triggering API refresh...
+[2026-02-15 15:33:48] ✅ API refreshed successfully.
+[2026-02-15 15:33:48] ============================================================
+[2026-02-15 15:33:48] ✅ UPDATE PIPELINE COMPLETED
+[2026-02-15 15:33:48] ============================================================
+[2026-02-15 15:37:08] ============================================================
+[2026-02-15 15:37:08] 📅 STATISTICS UPDATE STARTED
+[2026-02-15 15:37:08] ============================================================
+[2026-02-15 15:37:08] 🚀 Starting jellyfin_fetcher.py...
+[2026-02-15 15:37:24] ✅ jellyfin_fetcher.py completed successfully.
+[2026-02-15 15:37:24] 🚀 Starting tmdb_fetcher.py...
+[2026-02-15 15:38:11] ✅ tmdb_fetcher.py completed successfully.
+[2026-02-15 15:38:11] 🚀 Starting generate_all_scores.py...
+[2026-02-15 15:42:36] ✅ generate_all_scores.py completed successfully.
+[2026-02-15 15:42:36] 🔄 Triggering API refresh...
+[2026-02-15 15:42:36] ✅ API refreshed successfully.
+[2026-02-15 15:42:36] ============================================================
+[2026-02-15 15:42:36] ✅ UPDATE PIPELINE COMPLETED
+[2026-02-15 15:42:36] ============================================================
+[2026-02-15 19:32:26] ============================================================
+[2026-02-15 19:32:26] 📅 STATISTICS UPDATE STARTED
+[2026-02-15 19:32:26] ============================================================
+[2026-02-15 19:32:26] 🚀 Starting jellyfin_fetcher.py...
+[2026-02-15 19:32:38] ✅ jellyfin_fetcher.py completed successfully.
+[2026-02-15 19:32:38] 🚀 Starting tmdb_fetcher.py...
+[2026-02-15 19:33:35] ✅ tmdb_fetcher.py completed successfully.
+[2026-02-15 19:33:35] 🚀 Starting generate_all_scores.py...
+[2026-02-15 19:37:30] ✅ generate_all_scores.py completed successfully.
+[2026-02-15 19:37:30] 🔄 Triggering API refresh...
+[2026-02-15 19:37:30] ✅ API refreshed successfully.
+[2026-02-15 19:37:30] ============================================================
+[2026-02-15 19:37:30] ✅ UPDATE PIPELINE COMPLETED
+[2026-02-15 19:37:30] ============================================================
+[2026-02-15 19:39:24] ============================================================
+[2026-02-15 19:39:24] 📅 STATISTICS UPDATE STARTED
+[2026-02-15 19:39:24] ============================================================
+[2026-02-15 19:39:24] 🚀 Starting jellyfin_fetcher.py...
+[2026-02-15 19:39:38] ✅ jellyfin_fetcher.py completed successfully.
+[2026-02-15 19:39:38] 🚀 Starting tmdb_fetcher.py...
+[2026-02-15 19:40:12] ✅ tmdb_fetcher.py completed successfully.
+[2026-02-15 19:40:12] 🚀 Starting generate_all_scores.py...
+[2026-02-15 19:40:36] ✅ generate_all_scores.py completed successfully.
+[2026-02-15 19:40:36] 🔄 Triggering API refresh...
+[2026-02-15 19:40:36] ⚠️ API refresh failed (API might be down): HTTPConnectionPool(host='localhost', port=8097): Max retries exceeded with url: /refresh (Caused by NewConnectionError("HTTPConnection(host='localhost', port=8097): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-02-15 19:40:36] ============================================================
+[2026-02-15 19:40:36] ✅ UPDATE PIPELINE COMPLETED
+[2026-02-15 19:40:36] ============================================================
+[2026-02-15 19:47:30] ============================================================
+[2026-02-15 19:47:30] 📅 STATISTICS UPDATE STARTED
+[2026-02-15 19:47:30] ============================================================
+[2026-02-15 19:47:30] 🚀 Starting jellyfin_fetcher.py...
+[2026-02-15 19:47:44] ✅ jellyfin_fetcher.py completed successfully.
+[2026-02-15 19:47:44] 🚀 Starting tmdb_fetcher.py...
+[2026-02-15 19:49:18] ✅ tmdb_fetcher.py completed successfully.
+[2026-02-15 19:49:18] 🚀 Starting generate_all_scores.py...
+[2026-02-15 19:57:28] ✅ generate_all_scores.py completed successfully.
+[2026-02-15 19:57:28] 🔄 Triggering API refresh...
+[2026-02-15 19:57:28] ✅ API refreshed successfully.
+[2026-02-15 19:57:28] ============================================================
+[2026-02-15 19:57:28] ✅ UPDATE PIPELINE COMPLETED
+[2026-02-15 19:57:28] ============================================================
+[2026-02-15 20:01:49] ============================================================
+[2026-02-15 20:01:49] 📅 STATISTICS UPDATE STARTED
+[2026-02-15 20:01:49] ============================================================
+[2026-02-15 20:01:49] 🚀 Starting jellyfin_fetcher.py...
+[2026-02-15 20:02:01] ✅ jellyfin_fetcher.py completed successfully.
+[2026-02-15 20:02:01] 🚀 Starting tmdb_fetcher.py...
+[2026-02-15 20:03:01] ✅ tmdb_fetcher.py completed successfully.
+[2026-02-15 20:03:01] 🚀 Starting generate_all_scores.py...
+[2026-02-15 20:04:34] ✅ generate_all_scores.py completed successfully.
+[2026-02-15 20:04:34] 🔄 Triggering API refresh...
+[2026-02-15 20:04:34] ✅ API refreshed successfully.
+[2026-02-15 20:04:34] ============================================================
+[2026-02-15 20:04:34] ✅ UPDATE PIPELINE COMPLETED
+[2026-02-15 20:04:34] ============================================================
+[2026-02-15 20:19:37] ============================================================
+[2026-02-15 20:19:37] 📅 STATISTICS UPDATE STARTED
+[2026-02-15 20:19:37] ============================================================
+[2026-02-15 20:19:37] 🚀 Starting jellyfin_fetcher.py...
+[2026-02-15 20:19:50] ✅ jellyfin_fetcher.py completed successfully.
+[2026-02-15 20:19:50] 🚀 Starting tmdb_fetcher.py...
+[2026-02-15 20:21:25] ✅ tmdb_fetcher.py completed successfully.
+[2026-02-15 20:21:25] 🚀 Starting generate_all_scores.py...
+[2026-02-15 20:26:19] ✅ generate_all_scores.py completed successfully.
+[2026-02-15 20:26:19] 🔄 Triggering API refresh...
+[2026-02-15 20:26:19] ✅ API refreshed successfully.
+[2026-02-15 20:26:19] ============================================================
+[2026-02-15 20:26:19] ✅ UPDATE PIPELINE COMPLETED
+[2026-02-15 20:26:19] ============================================================
+[2026-02-15 23:28:00] ============================================================
+[2026-02-15 23:28:00] 📅 STATISTICS UPDATE STARTED
+[2026-02-15 23:28:00] ============================================================
+[2026-02-15 23:28:00] 🚀 Starting jellyfin_fetcher.py...
+[2026-02-15 23:28:16] ✅ jellyfin_fetcher.py completed successfully.
+[2026-02-15 23:28:16] 🚀 Starting tmdb_fetcher.py...
+[2026-02-15 23:29:40] ============================================================
+[2026-02-15 23:29:40] 📅 STATISTICS UPDATE STARTED
+[2026-02-15 23:29:40] ============================================================
+[2026-02-15 23:29:40] 🚀 Starting jellyfin_fetcher.py...
+[2026-02-15 23:29:52] ✅ jellyfin_fetcher.py completed successfully.
+[2026-02-15 23:29:52] 🚀 Starting tmdb_fetcher.py...
+[2026-02-15 23:31:09] ✅ tmdb_fetcher.py completed successfully.
+[2026-02-15 23:31:09] 🚀 Starting generate_all_scores.py...
+[2026-02-15 23:31:21] ============================================================
+[2026-02-15 23:31:21] 📅 STATISTICS UPDATE STARTED
+[2026-02-15 23:31:21] ============================================================
+[2026-02-15 23:31:21] 🚀 Starting jellyfin_fetcher.py...
+[2026-02-15 23:32:17] ============================================================
+[2026-02-15 23:32:17] 📅 STATISTICS UPDATE STARTED
+[2026-02-15 23:32:17] ============================================================
+[2026-02-15 23:32:17] 🚀 Starting jellyfin_fetcher.py...
+[2026-02-15 23:32:32] ✅ jellyfin_fetcher.py completed successfully.
+[2026-02-15 23:32:32] 🚀 Starting tmdb_fetcher.py...
+[2026-02-15 23:33:36] ✅ tmdb_fetcher.py completed successfully.
+[2026-02-15 23:33:36] 🚀 Starting generate_all_scores.py...
+[2026-02-15 23:33:57] ============================================================
+[2026-02-15 23:33:57] 📅 STATISTICS UPDATE STARTED
+[2026-02-15 23:33:57] ============================================================
+[2026-02-15 23:33:57] 🚀 Starting jellyfin_fetcher.py...
+[2026-02-15 23:34:10] ✅ jellyfin_fetcher.py completed successfully.
+[2026-02-15 23:34:10] 🚀 Starting tmdb_fetcher.py...
+[2026-02-15 23:35:13] ✅ tmdb_fetcher.py completed successfully.
+[2026-02-15 23:35:13] 🚀 Starting generate_all_scores.py...
+[2026-02-15 23:35:38] ============================================================
+[2026-02-15 23:35:38] 📅 STATISTICS UPDATE STARTED
+[2026-02-15 23:35:38] ============================================================
+[2026-02-15 23:35:38] 🚀 Starting jellyfin_fetcher.py...
+[2026-02-15 23:35:50] ✅ jellyfin_fetcher.py completed successfully.
+[2026-02-15 23:35:50] 🚀 Starting tmdb_fetcher.py...
+[2026-02-15 23:36:52] ✅ tmdb_fetcher.py completed successfully.
+[2026-02-15 23:36:52] 🚀 Starting generate_all_scores.py...
+[2026-02-15 23:37:18] ============================================================
+[2026-02-15 23:37:18] 📅 STATISTICS UPDATE STARTED
+[2026-02-15 23:37:18] ============================================================
+[2026-02-15 23:37:18] 🚀 Starting jellyfin_fetcher.py...
+[2026-02-15 23:37:31] ✅ jellyfin_fetcher.py completed successfully.
+[2026-02-15 23:37:31] 🚀 Starting tmdb_fetcher.py...
+[2026-02-15 23:38:35] ✅ tmdb_fetcher.py completed successfully.
+[2026-02-15 23:38:35] 🚀 Starting generate_all_scores.py...
+[2026-02-15 23:38:59] ============================================================
+[2026-02-15 23:38:59] 📅 STATISTICS UPDATE STARTED
+[2026-02-15 23:38:59] ============================================================
+[2026-02-15 23:38:59] 🚀 Starting jellyfin_fetcher.py...
+[2026-02-15 23:39:10] ✅ jellyfin_fetcher.py completed successfully.
+[2026-02-15 23:39:10] 🚀 Starting tmdb_fetcher.py...
+[2026-02-15 23:40:11] ✅ tmdb_fetcher.py completed successfully.
+[2026-02-15 23:40:11] 🚀 Starting generate_all_scores.py...
+[2026-02-15 23:40:39] ============================================================
+[2026-02-15 23:40:39] 📅 STATISTICS UPDATE STARTED
+[2026-02-15 23:40:39] ============================================================
+[2026-02-15 23:40:39] 🚀 Starting jellyfin_fetcher.py...
+[2026-02-15 23:40:50] ✅ jellyfin_fetcher.py completed successfully.
+[2026-02-15 23:40:50] 🚀 Starting tmdb_fetcher.py...
+[2026-02-15 23:41:52] ✅ tmdb_fetcher.py completed successfully.
+[2026-02-15 23:41:52] 🚀 Starting generate_all_scores.py...
+[2026-02-15 23:42:20] ============================================================
+[2026-02-15 23:42:20] 📅 STATISTICS UPDATE STARTED
+[2026-02-15 23:42:20] ============================================================
+[2026-02-15 23:42:20] 🚀 Starting jellyfin_fetcher.py...
+[2026-02-15 23:42:27] ============================================================
+[2026-02-15 23:42:27] 📅 STATISTICS UPDATE STARTED
+[2026-02-15 23:42:27] ============================================================
+[2026-02-15 23:42:27] 🚀 Starting jellyfin_fetcher.py...
+[2026-02-15 23:42:31] ✅ jellyfin_fetcher.py completed successfully.
+[2026-02-15 23:42:31] 🚀 Starting tmdb_fetcher.py...
+[2026-02-15 23:42:39] ✅ jellyfin_fetcher.py completed successfully.
+[2026-02-15 23:42:39] 🚀 Starting tmdb_fetcher.py...
+[2026-02-15 23:43:35] ✅ tmdb_fetcher.py completed successfully.
+[2026-02-15 23:43:35] 🚀 Starting generate_all_scores.py...
+[2026-02-16 11:54:59] ============================================================
+[2026-02-16 11:54:59] 📅 STATISTICS UPDATE STARTED
+[2026-02-16 11:54:59] ============================================================
+[2026-02-16 11:54:59] 🚀 Starting jellyfin_fetcher.py...
+[2026-02-16 11:55:11] ✅ jellyfin_fetcher.py completed successfully.
+[2026-02-16 11:55:11] 🚀 Starting tmdb_fetcher.py...
+[2026-02-16 11:57:00] ✅ tmdb_fetcher.py completed successfully.
+[2026-02-16 11:57:00] 🚀 Starting generate_all_scores.py...
+[2026-02-16 11:57:46] ✅ generate_all_scores.py completed successfully.
+[2026-02-16 11:57:46] 🔄 Triggering API refresh...
+[2026-02-16 11:57:46] ✅ API refreshed successfully.
+[2026-02-16 11:57:46] ============================================================
+[2026-02-16 11:57:46] ✅ UPDATE PIPELINE COMPLETED
+[2026-02-16 11:57:46] ============================================================
+[2026-02-16 21:25:56] ============================================================
+[2026-02-16 21:25:56] 📅 STATISTICS UPDATE STARTED
+[2026-02-16 21:25:56] ============================================================
+[2026-02-16 21:25:56] 🚀 Starting jellyfin_fetcher.py...
+[2026-02-16 21:26:07] ✅ jellyfin_fetcher.py completed successfully.
+[2026-02-16 21:26:07] 🚀 Starting tmdb_fetcher.py...
+[2026-02-16 21:28:25] ✅ tmdb_fetcher.py completed successfully.
+[2026-02-16 21:28:25] 🚀 Starting generate_all_scores.py...
+[2026-02-16 21:28:47] ✅ generate_all_scores.py completed successfully.
+[2026-02-16 21:28:47] 🔄 Triggering API refresh...
+[2026-02-16 21:28:53] ⚠️ API refresh failed (API might be down): ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+[2026-02-16 21:28:53] ============================================================
+[2026-02-16 21:28:53] ✅ UPDATE PIPELINE COMPLETED
+[2026-02-16 21:28:53] ============================================================
+[2026-02-16 22:31:14] ============================================================
+[2026-02-16 22:31:14] 📅 STATISTICS UPDATE STARTED
+[2026-02-16 22:31:14] ============================================================
+[2026-02-16 22:31:14] 🚀 Starting jellyfin_fetcher.py...
+[2026-02-16 22:31:26] ✅ jellyfin_fetcher.py completed successfully.
+[2026-02-16 22:31:26] 🚀 Starting tmdb_fetcher.py...
+[2026-02-16 22:33:06] ✅ tmdb_fetcher.py completed successfully.
+[2026-02-16 22:33:06] 🚀 Starting generate_all_scores.py...
+[2026-02-16 22:33:28] ✅ generate_all_scores.py completed successfully.
+[2026-02-16 22:33:28] 🔄 Triggering API refresh...
+[2026-02-16 22:33:35] ⚠️ API refresh failed (API might be down): ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+[2026-02-16 22:33:35] ============================================================
+[2026-02-16 22:33:35] ✅ UPDATE PIPELINE COMPLETED
+[2026-02-16 22:33:35] ============================================================
+[2026-02-16 22:47:28] ============================================================
+[2026-02-16 22:47:28] 📅 STATISTICS UPDATE STARTED
+[2026-02-16 22:47:28] ============================================================
+[2026-02-16 22:47:28] 🚀 Starting jellyfin_fetcher.py...
+[2026-02-16 22:47:39] ✅ jellyfin_fetcher.py completed successfully.
+[2026-02-16 22:47:39] 🚀 Starting tmdb_fetcher.py...
+[2026-02-16 22:48:42] ✅ tmdb_fetcher.py completed successfully.
+[2026-02-16 22:48:42] 🚀 Starting generate_all_scores.py...
+[2026-02-16 22:49:03] ✅ generate_all_scores.py completed successfully.
+[2026-02-16 22:49:03] 🔄 Triggering API refresh...
+[2026-02-16 22:49:10] ⚠️ API refresh failed (API might be down): ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+[2026-02-16 22:49:10] ============================================================
+[2026-02-16 22:49:10] ✅ UPDATE PIPELINE COMPLETED
+[2026-02-16 22:49:10] ============================================================
+[2026-02-16 23:57:03] ============================================================
+[2026-02-16 23:57:03] 📅 STATISTICS UPDATE STARTED
+[2026-02-16 23:57:03] ============================================================
+[2026-02-16 23:57:03] 🚀 Starting jellyfin_fetcher.py...
+[2026-02-16 23:57:13] ✅ jellyfin_fetcher.py completed successfully.
+[2026-02-16 23:57:13] 🚀 Starting tmdb_fetcher.py...
+[2026-02-16 23:59:00] ✅ tmdb_fetcher.py completed successfully.
+[2026-02-16 23:59:00] 🚀 Starting generate_all_scores.py...
+[2026-02-16 23:59:20] ✅ generate_all_scores.py completed successfully.
+[2026-02-16 23:59:20] 🔄 Triggering API refresh...
+[2026-02-16 23:59:27] ⚠️ API refresh failed (API might be down): ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+[2026-02-16 23:59:27] ============================================================
+[2026-02-16 23:59:27] ✅ UPDATE PIPELINE COMPLETED
+[2026-02-16 23:59:27] ============================================================
+[2026-02-17 00:44:26] ============================================================
+[2026-02-17 00:44:26] 📅 STATISTICS UPDATE STARTED
+[2026-02-17 00:44:26] ============================================================
+[2026-02-17 00:44:26] 🚀 Starting jellyfin_fetcher.py...
+[2026-02-17 00:44:38] ✅ jellyfin_fetcher.py completed successfully.
+[2026-02-17 00:44:38] 🚀 Starting tmdb_fetcher.py...
+[2026-02-17 00:45:46] ✅ tmdb_fetcher.py completed successfully.
+[2026-02-17 00:45:46] 🚀 Starting generate_all_scores.py...
+[2026-02-17 00:46:07] ✅ generate_all_scores.py completed successfully.
+[2026-02-17 00:46:07] 🔄 Triggering API refresh...
+[2026-02-17 00:46:08] ✅ API refreshed successfully.
+[2026-02-17 00:46:08] ============================================================
+[2026-02-17 00:46:08] ✅ UPDATE PIPELINE COMPLETED
+[2026-02-17 00:46:08] ============================================================
+[2026-02-17 00:49:27] ============================================================
+[2026-02-17 00:49:27] 📅 STATISTICS UPDATE STARTED
+[2026-02-17 00:49:27] ============================================================
+[2026-02-17 00:49:27] 🚀 Starting jellyfin_fetcher.py...
+[2026-02-17 00:49:38] ✅ jellyfin_fetcher.py completed successfully.
+[2026-02-17 00:49:38] 🚀 Starting tmdb_fetcher.py...
+[2026-02-17 00:51:01] ✅ tmdb_fetcher.py completed successfully.
+[2026-02-17 00:51:01] 🚀 Starting generate_all_scores.py...
+[2026-02-17 00:53:40] ✅ generate_all_scores.py completed successfully.
+[2026-02-17 00:53:40] 🔄 Triggering API refresh...
+[2026-02-17 00:53:40] ✅ API refreshed successfully.
+[2026-02-17 00:53:40] ============================================================
+[2026-02-17 00:53:40] ✅ UPDATE PIPELINE COMPLETED
+[2026-02-17 00:53:40] ============================================================
+[2026-02-17 01:12:57] ============================================================
+[2026-02-17 01:12:57] 📅 STATISTICS UPDATE STARTED
+[2026-02-17 01:12:57] ============================================================
+[2026-02-17 01:12:57] 🚀 Starting jellyfin_fetcher.py...
+[2026-02-17 01:13:09] ✅ jellyfin_fetcher.py completed successfully.
+[2026-02-17 01:13:09] 🚀 Starting tmdb_fetcher.py...
+[2026-02-17 01:14:48] ✅ tmdb_fetcher.py completed successfully.
+[2026-02-17 01:14:48] 🚀 Starting generate_all_scores.py...
+[2026-02-17 01:17:27] ✅ generate_all_scores.py completed successfully.
+[2026-02-17 01:17:27] 🔄 Triggering API refresh...
+[2026-02-17 01:17:27] ✅ API refreshed successfully.
+[2026-02-17 01:17:27] ============================================================
+[2026-02-17 01:17:27] ✅ UPDATE PIPELINE COMPLETED
+[2026-02-17 01:17:27] ============================================================
+[2026-02-17 02:15:34] ============================================================
+[2026-02-17 02:15:34] 📅 STATISTICS UPDATE STARTED
+[2026-02-17 02:15:34] ============================================================
+[2026-02-17 02:15:34] 🚀 Starting jellyfin_fetcher.py...
+[2026-02-17 02:16:39] ✅ jellyfin_fetcher.py completed successfully.
+[2026-02-17 02:16:39] 🚀 Starting tmdb_fetcher.py...
+[2026-02-17 02:19:07] ✅ tmdb_fetcher.py completed successfully.
+[2026-02-17 02:19:07] 🚀 Starting generate_all_scores.py...
+[2026-02-17 02:25:14] ✅ generate_all_scores.py completed successfully.
+[2026-02-17 02:25:14] 🔄 Triggering API refresh...
+[2026-02-17 02:25:14] ✅ API refreshed successfully.
+[2026-02-17 02:25:14] ============================================================
+[2026-02-17 02:25:14] ✅ UPDATE PIPELINE COMPLETED
+[2026-02-17 02:25:14] ============================================================
+[2026-02-17 10:30:12] ============================================================
+[2026-02-17 10:30:12] 📅 STATISTICS UPDATE STARTED
+[2026-02-17 10:30:12] ============================================================
+[2026-02-17 10:30:12] 🚀 Starting jellyfin_fetcher.py...
+[2026-02-17 10:30:28] ✅ jellyfin_fetcher.py completed successfully.
+[2026-02-17 10:30:28] 🚀 Starting tmdb_fetcher.py...
+[2026-02-17 10:34:03] ✅ tmdb_fetcher.py completed successfully.
+[2026-02-17 10:34:03] 🚀 Starting generate_all_scores.py...
+[2026-02-17 10:34:34] ✅ generate_all_scores.py completed successfully.
+[2026-02-17 10:34:34] 🔄 Triggering API refresh...
+[2026-02-17 10:34:34] ✅ API refreshed successfully.
+[2026-02-17 10:34:34] ============================================================
+[2026-02-17 10:34:34] ✅ UPDATE PIPELINE COMPLETED
+[2026-02-17 10:34:34] ============================================================
+[2026-02-17 10:40:45] ============================================================
+[2026-02-17 10:40:45] 📅 STATISTICS UPDATE STARTED
+[2026-02-17 10:40:45] ============================================================
+[2026-02-17 10:40:45] 🚀 Starting jellyfin_fetcher.py...
+[2026-02-17 10:40:57] ✅ jellyfin_fetcher.py completed successfully.
+[2026-02-17 10:40:57] 🚀 Starting tmdb_fetcher.py...
+[2026-02-17 10:42:36] ✅ tmdb_fetcher.py completed successfully.
+[2026-02-17 10:42:36] 🚀 Starting generate_all_scores.py...
+[2026-02-17 10:43:00] ✅ generate_all_scores.py completed successfully.
+[2026-02-17 10:43:00] 🔄 Triggering API refresh...
+[2026-02-17 10:43:00] ✅ API refreshed successfully.
+[2026-02-17 10:43:00] ============================================================
+[2026-02-17 10:43:00] ✅ UPDATE PIPELINE COMPLETED
+[2026-02-17 10:43:00] ============================================================
