@@ -109,7 +109,7 @@ SONARR_API_KEY=your_sonarr_key_here
 Movie-Recommender/
 ├── data/              # Auto-created cache (don't touch)
 ├── src/               # Source code
-├── ui_v2/             # Web interface
+├── ui/             # Web interface
 ├── .env               # Your config (create this)
 ├── docker-compose.yml # Docker orchestration
 ├── Dockerfile         # Container build

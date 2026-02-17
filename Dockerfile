@@ -40,7 +40,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy application code
 COPY src/ ./src/
-COPY ui_v2/ ./ui/
+COPY ui/ ./ui/
 
 # Create data directory (will be mounted as volume)
 RUN mkdir -p /app/data
