@@ -146,7 +146,9 @@ def main():
     update_status(f"Loaded {len(candidates)} candidates from TMDB...", 58)
 
     # 2. Init Recommender
-    recommender = EmbeddingRecommender()
+    # Pass absolute path to embeddings.pkl to ensure we find the volume-mounted file
+    embeddings_path = DATA_DIR / "embeddings.pkl"
+    recommender = EmbeddingRecommender(cache_path=str(embeddings_path))
     
     # 3. Build Embeddings for Candidates
     print("   Building/Loading Candidate Embeddings...")

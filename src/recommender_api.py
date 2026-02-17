@@ -1571,7 +1571,7 @@ async def get_weighted_recommendations(
     if disliked_items:
         try:
             from embedding_recommender import EmbeddingRecommender
-            recommender = EmbeddingRecommender()
+            recommender = EmbeddingRecommender(cache_path=str(DATA_DIR / "embeddings.pkl"))
             # Ensure we have candidate embeddings
             recommender.build_embedding_matrix(candidates)
             for d in disliked_items:
@@ -1629,7 +1629,7 @@ async def get_weighted_recommendations(
         if active_dislikes:
             try:
                 from embedding_recommender import EmbeddingRecommender
-                recommender = EmbeddingRecommender()
+                recommender = EmbeddingRecommender(cache_path=str(DATA_DIR / "embeddings.pkl"))
                 recommender.build_embedding_matrix(candidates)
                 dislike_vectors = []
                 for d in active_dislikes:
@@ -1698,7 +1698,7 @@ async def get_similar_items(
     Get items similar to a given TMDB ID.
     """
     try:
-        recommender = EmbeddingRecommender()
+        recommender = EmbeddingRecommender(cache_path=str(DATA_DIR / "embeddings.pkl"))
         candidates = load_candidates().get("candidates", [])
         recommender.build_embedding_matrix(candidates)
         
