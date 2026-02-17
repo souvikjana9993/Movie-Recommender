@@ -37,6 +37,7 @@ Jellyfin → TMDB → ML Scoring → Recommendations
 - API Keys:
   - **TMDB** - Free at [themoviedb.org/settings/api](https://www.themoviedb.org/settings/api)
   - **Jellyfin** - Dashboard → Advanced → API Keys
+  - **HuggingFace** - **(Required)** [Accept model license](https://huggingface.co/google/embeddinggemma-300m) and generate a Read token at [hf.co/settings/tokens](https://huggingface.co/settings/tokens)
 
 ### Deploy
 
@@ -52,8 +53,9 @@ nano .env  # Add your API keys
 # 3. Start the service
 docker-compose up -d
 
-# 4. Wait for first boot (60-90 seconds)
-sleep 90
+# 4. Wait for first boot (3-5 minutes)
+# The first boot includes downloading ML models (~600MB) and generating embeddings.
+sleep 180
 
 # 5. Verify it's running
 curl http://localhost:8097/api/health
@@ -107,9 +109,9 @@ SONARR_API_KEY=your_sonarr_key_here
 
 ```
 Movie-Recommender/
-├── data/              # Auto-created cache (don't touch)
+├── data/              # Auto-created cache (persistent)
 ├── src/               # Source code
-├── ui/             # Web interface
+├── ui/                # Modern Web interface (FastAPI static)
 ├── .env               # Your config (create this)
 ├── docker-compose.yml # Docker orchestration
 ├── Dockerfile         # Container build
@@ -194,7 +196,7 @@ docker-compose logs -f
 | `RADARR_API_KEY` | No | Radarr API key |
 | `SONARR_URL` | No | Sonarr server URL |
 | `SONARR_API_KEY` | No | Sonarr API key |
-| `HF_TOKEN` | No | HuggingFace token (rarely needed) |
+| `HF_TOKEN` | **Yes** | HuggingFace token ([Required](https://huggingface.co/google/embeddinggemma-300m)) |
 
 ## License
 
