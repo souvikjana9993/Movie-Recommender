@@ -39,6 +39,8 @@ services:
       # Persist all data including embeddings, recommendations, and watch history
       # This ensures your data survives container restarts and updates
       - ./data:/app/data
+      # Cache HuggingFace model weights (~600MB) so they survive rebuilds
+      - hf-cache:/root/.cache/huggingface
     networks:
       - recommender-network
     healthcheck:
@@ -60,3 +62,6 @@ services:
 networks:
   recommender-network:
     driver: bridge
+
+volumes:
+  hf-cache:
