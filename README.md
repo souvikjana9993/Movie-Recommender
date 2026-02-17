@@ -710,8 +710,7 @@ movierecommender/
 │   ├── recommendations.json  # Final recommendations
 │   └── disliked_items.json   # Hidden movies (4-month expiration)
 ├── docs/                      # Documentation
-│   ├── SYSTEM_DOCUMENTATION.md
-│   └── simpsons_vs_rickandmorty_math.md
+│   └── SYSTEM_DOCUMENTATION.md
 ├── src/                       # Source code
 │   ├── recommender_api.py    # FastAPI server
 │   ├── jellyfin_fetcher.py   # Jellyfin integration
