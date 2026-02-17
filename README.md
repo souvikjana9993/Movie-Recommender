@@ -7,6 +7,10 @@ An intelligent movie and TV show recommendation system that integrates with Jell
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.95+-green.svg)
 ![Docker](https://img.shields.io/badge/docker-ready-blue.svg)
 
+<p align="center">
+  <img src="docs/hero_demo.webp" alt="MovieAI Demo" width="800">
+</p>
+
 ## 🎬 UI Tour
 
 ### Dashboard — Personalized Recommendations
