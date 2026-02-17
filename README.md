@@ -7,6 +7,33 @@ An intelligent movie and TV show recommendation system that integrates with Jell
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.95+-green.svg)
 ![Docker](https://img.shields.io/badge/docker-ready-blue.svg)
 
+## 🎬 UI Tour
+
+### Dashboard — Personalized Recommendations
+Your recommendations, ranked by AI using a hybrid of content similarity, quality, and collaborative signals.
+
+![Dashboard](docs/screenshots/01_dashboard.png)
+
+### Movie Details — Match Score & Add to Library
+Click any card to see details, AI match score, and one-click add to Radarr/Sonarr.
+
+![Detail Modal](docs/screenshots/02_detail_modal.png)
+
+### Genre & Type Filtering
+Filter by genre (Sci-Fi, Action, Drama, etc.) and type (Movies vs TV Shows) in real-time.
+
+![Genre Filter](docs/screenshots/03_genre_filter.png)
+
+### Global Search
+Search across your entire library by title, actor, or director with BM25-powered results.
+
+![Search](docs/screenshots/04_search.png)
+
+### Recommendation Tuner
+Fine-tune the AI weights — adjust Content, Collaborative, Quality, and Confidence sliders.
+
+![Tuner](docs/screenshots/05_tuner.png)
+
 ## Features
 
 - **ML-Powered Recommendations** - Uses Google's EmbeddingGemma-300M for content similarity
