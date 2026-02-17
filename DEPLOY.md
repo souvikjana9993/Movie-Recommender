@@ -205,12 +205,6 @@ deploy:
       memory: 4G
 ```
 
-### Development Mode
-For live UI editing:
-```bash
-docker-compose -f docker-compose.yml -f docker-compose.override.yml up -d
-```
-
 ### Reverse Proxy (nginx/traefik)
 Example nginx config:
 ```nginx
