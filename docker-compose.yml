@@ -1,5 +1,3 @@
-version: '3.8'
-
 # AI Movie Recommender - Docker Compose Configuration
 # 
 # This file sets up the movie recommender service with:
